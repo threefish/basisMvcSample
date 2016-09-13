@@ -1,0 +1,19 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>测试</title>
+</head>
+<body>
+<h1>你好  ${data.name}</h1>
+<h1>今年  ${data.age} 岁</h1>
+<h1>服务器ContextPath===${base}</h1>
+${data.data.~size}
+<ul>
+    <%
+    for(user in data.data){
+    %>
+    <li>${user.name} &nbsp; &nbsp;&nbsp;&nbsp;  >>>>>>> &nbsp;&nbsp;&nbsp;&nbsp;  ${user.age}</li>
+    <%}%>
+</ul>
+</body>
+</html>

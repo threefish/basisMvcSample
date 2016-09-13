@@ -22,20 +22,23 @@ import java.io.Writer;
 public class FreeMarkerView implements View {
 
     private static Configuration cfg = new Configuration(Configuration.getVersion());
+    private final static String _suffix = ".html";
 
     static {
         try {
-            cfg.setDirectoryForTemplateLoading(new File(Mvcs.getSession().getServletContext().getRealPath("/ftl/")));
+            cfg.setDirectoryForTemplateLoading(new File(Mvcs.getSession().getServletContext().getRealPath("/_view_/ftl/")));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void render(String path, HttpServletRequest request, HttpServletResponse response, Object object) {
+    @Override
+    public void render(String path, HttpServletRequest request, HttpServletResponse response, Object data) {
         try {
-            Template template = cfg.getTemplate(path);
+            cfg.setSharedVariable("base", Mvcs.getReq().getContextPath());
+            Template template = cfg.getTemplate(path + _suffix);
             Writer writer = new OutputStreamWriter(response.getOutputStream());
-            template.process(object, writer);
+            template.process(data, writer);
             writer.flush();
         } catch (Exception e) {
             e.printStackTrace();

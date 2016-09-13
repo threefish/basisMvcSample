@@ -4,17 +4,18 @@ import com.google.gson.Gson;
 import com.sample.entity.User;
 import com.sgaop.web.frame.server.dao.DBConnPool;
 import com.sgaop.web.frame.server.mvc.AjaxResult;
-import com.sgaop.web.frame.server.mvc.Mvcs;
 import com.sgaop.web.frame.server.mvc.annotation.*;
 import com.sgaop.web.frame.server.mvc.upload.TempFile;
-import com.sgaop.web.frame.server.mvc.view.ViewsRegister;
 import com.sgaop.web.frame.server.util.IoTool;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -29,9 +30,7 @@ import java.util.Map;
  * @OK("fw:testpage.jsp")//转发
  * @GET//请求方式
  * @Path//默认使用方法名
- *
  * @WebController 标识这是一个可访问的webAction
- *
  */
 @WebController("/main")
 public class MainAction {
@@ -63,17 +62,58 @@ public class MainAction {
     }
 
 
-    @OK("freemarker:TestFreeMarker.ftl")
+    @OK("freemarker:TestFreeMarker")
     @GET
     @Path("/freemarker")
     public Map freemarkerTest() {
         System.out.println("---freemarkerTest");
-        System.out.println(Mvcs.getReq().getRealPath("/ftl/"));
         Map data1 = new HashMap();
         data1.put("name", "张三");
         data1.put("age", 11);
         return data1;
     }
+
+    @OK("beetl:TestBeetl")
+    @GET
+    @Path("/beetl")
+    public Map beetlTest() {
+        System.out.println("---beetlTest");
+        Map data1 = new HashMap();
+        data1.put("name", "张三");
+        data1.put("age", 11);
+        List<Map> datalist=new ArrayList<Map>();
+        for(int i=1;i<=9;i++){
+            Map temp = new HashMap();
+            temp.put("name", "张"+i);
+            temp.put("age", (Math.random() * 100));
+            datalist.add(temp);
+        }
+        data1.put("data", datalist);
+        return data1;
+    }
+
+    @OK("beetl:TestBeetl2")
+    @GET
+    @Path("/beetl2")
+    public User beetl2() {
+        System.out.println("---beetlTest2");
+        User user = new User();
+        user.setAge(18);
+        user.setName("李四");
+        return user;
+    }
+
+    @OK("beetl:TestBeetl2")
+    @GET
+    @Path("/beetl3")
+    public Map beetl3() {
+        System.out.println("---beetlTest3");
+        Map data1 = new HashMap();
+        data1.put("name", "张三");
+        data1.put("age", 11);
+        return data1;
+    }
+
 
     @OK("json")
     @POST
@@ -107,9 +147,9 @@ public class MainAction {
     @OK("json")
     @POST
     @Path("/buildBean")
-    public AjaxResult buildBean(@Parameter("data>>") User bean) {
+    public AjaxResult buildBean(@Parameter("data>>") User bean) throws SQLException {
         System.out.println(new Gson().toJson(bean));
-        Connection connection = DBConnPool.getDbConn();
+        Connection connection = DBConnPool.getDataSource().getConnection();
         System.out.println(connection);
         return new AjaxResult(true, "呵呵呵", bean);
     }
