@@ -1,24 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
+    <groupId>basisMvcBlog</groupId>
     <artifactId>com.sgaop.basis</artifactId>
     <version>1.0</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
     <packaging>war</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,9 +18,9 @@
         <repository>
             <id>central</id>
             <!-- 下载速度快 -->
-            <url>http://maven.antelink.com/content/repositories/central/</url>
+            <!--<url>http://maven.antelink.com/content/repositories/central/</url>-->
             <!-- 下载速度一般 -->
-            <!--<url>http://uk.maven.org/maven2</url>-->
+            <url>http://uk.maven.org/maven2</url>
         </repository>
     </repositories>
 
@@ -97,6 +85,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.38</version>
         </dependency>
-
+        <dependency>
+            <groupId>basisMvc</groupId>
+            <artifactId>com.sgaop.basis</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.sgaop.basis-1.0.jar</systemPath>
+        </dependency>
     </dependencies>
+
 </project>
