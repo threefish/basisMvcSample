@@ -35,7 +35,7 @@ public class FreeMarkerView implements View {
     @Override
     public void render(String path, HttpServletRequest request, HttpServletResponse response, Object data) {
         try {
-            cfg.setSharedVariable("base", Mvcs.getReq().getContextPath());
+            cfg.setSharedVariable("base", request.getContextPath());
             Template template = cfg.getTemplate(path + _suffix);
             Writer writer = new OutputStreamWriter(response.getOutputStream());
             template.process(data, writer);

@@ -50,7 +50,7 @@ public class BeetlView implements View {
             } else {
                 tpl.binding("data", data, true);
             }
-            tpl.binding("base", Mvcs.getReq().getContextPath());
+            tpl.binding("base", request.getContextPath());
             OutputStream out = response.getOutputStream();
             tpl.renderTo(response.getOutputStream());
             out.flush();
