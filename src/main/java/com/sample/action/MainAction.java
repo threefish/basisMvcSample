@@ -35,10 +35,17 @@ import java.util.Map;
 @WebController("/main")
 public class MainAction {
 
+    @OK("beetl:index")
+    @GET
+    @Path("/index")
+    public void index(){
+        System.out.println("index");
+    }
+
 
     @OK("jsp:testpage.jsp")
     @GET
-    @Path
+    @Path("/testindex")
     public AjaxResult index(
             @Parameter("id") int id,
             @Parameter("name") String name,

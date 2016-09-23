@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>${title}</title>
+    <link rel="stylesheet" type="text/css" href="${base}/static/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="${base}/static/css/style.css"/>
+    <link rel="stylesheet" href="${base}/static/css/animation.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="${base}/static/css/fontello-ie7.css">
+    <![endif]-->
+    <script src="${base}/static/js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${base}/static/js/calendarui/calendar.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${base}/static/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${base}/static/js/headeroom/headeroom.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            var _calenda = new Calendar('calendar', new Date());
+            _calenda.showUI(function (date) {
+                layer.alert('你点击了' + date.format("yyyy-MM-dd") + '日', {
+                    skin: 'layui-layer-lan',
+                    shift: 5 //动画类型
+                });
+            });
+            var header = new Headroom(document.querySelector("#header"), {
+                tolerance: 5,
+                offset: 0,
+                classes: {
+                    initial: "hui-header",
+                    pinned: "hui-header-show",
+                    unpinned: "hui-header-hide"
+                }
+            });
+            header.init();
+        });
+    </script>
+</head>
+<body>
+<div class="hui-header hui-header-show" id="header">
+    <div class="hui-product">
+        <div class="hui-top-logo_long hui-c">
+            <span class="hui-l hui-s-logo"></span>
+            <span class="hui-blod hui-l" style="color: #E78899;padding-right: 5px;">Three</span>
+            <span class="hui-l" style="color: #5FBFE7;">Fish</span>
+        </div>
+        <div class="hui-g-search">
+            <form accept-charset="utf-8" method="post">
+                <input type="text" placeholder="搜索站内文章、内容"/><span><i class="hui-icon">&#xe829;</i></span>
+            </form>
+        </div>
+        <div class="hui-top-menu">
+            <a href="#">登录</a>
+            <a href="#">注册</a>
+        </div>
+    </div>
+    <div class="hui-nav hui-nav-large">
+        <ul class="hui-nav-box">
+            <li class="hui-nav-bar active"><a href="#">首页</a></li>
+            <li class="hui-nav-bar"><a href="#">连接</a></li>
+            <li class="hui-nav-bar"><a href="#">连接</a></li>
+            <li class="hui-nav-bar"><a href="#">连接<i class="hui-icon">&#xe80b;</i></a>
+                <div class="hui-nav-menu">
+                    <a href="#">连接1连接1连接1</a>
+                    <a href="#">连接2</a>
+                </div>
+            </li>
+            <li class="hui-nav-bar"><a href="#">连接</a></li>
+        </ul>
+    </div>
+</div>
+</body>

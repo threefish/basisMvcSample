@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/animation.css">
+		<!--[if IE 7]><link rel="stylesheet" href="css/fontello-ie7.css"><![endif]-->
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/calendarui/calendar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/headeroom/headeroom.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var _calenda = new Calendar('calendar', new Date());
+				_calenda.showUI(function(date) {
+					layer.alert('你点击了' + date.format("yyyy-MM-dd") + '日', {
+						skin: 'layui-layer-lan',
+						shift: 5 //动画类型
+					});
+				});
+				var header = new Headroom(document.querySelector("#header"), {
+					tolerance: 0,
+					offset: 5,
+					classes: {
+						initial: "hui-header",
+						pinned: "hui-header-show",
+						unpinned: "hui-header-hide"
+					}
+				});
+				header.init();
+			});
+			/**
+			 * 添加评论
+			 */
+			function addComment() {
+				layer.confirm('<div><table class="hui-pl-confirm">' + '<tr><td><font>*</font>昵称:</td><td><input type="text" name="nikeName" id="nikeName" autocomplete="off"></td></tr>' + '<tr><td><font>*</font>验证码:</td><td><input type="text" name="checkCode" id="checkCode" autocomplete="off"></td></tr>' + '<tr><td>&nbsp;</td><td><img src=""></td></tr>' + '</table></div>', {
+					btn: ['确定', '取消'], //按钮
+					area: ['420px', 'auto'], //宽高
+					title: "评论",
+				}, function() {
+					layer.msg(document.getElementById("checkCode").value == "" ? "yes" : "no", {
+						icon: 1
+					});
+				}, function() {});
+			}
+		</script>
+	</head>
+	<body>
+		<div class="hui-header hui-header-show" id="header">
+			<div class="hui-product">
+				<div class="hui-top-logo_long hui-c">
+					<span class="hui-l hui-s-logo"></span>
+					<span class="hui-blod hui-l" style="color: #E78899;padding-right: 5px;">Three</span>
+					<span class="hui-l" style="color: #5FBFE7;">Fish</span>
+				</div>
+				<div class="hui-g-search">
+					<form accept-charset="utf-8" method="post">
+						<input type="text" placeholder="搜索站内文章、内容" /><span><i class="hui-icon">&#xe829;</i></span>
+					</form>
+				</div>
+				<div class="hui-top-menu">
+					<a href="#">登录</a>
+					<a href="#">注册</a>
+				</div>
+			</div>
+			<div class="hui-nav hui-nav-large">
+				<ul class="hui-nav-box">
+					<li class="hui-nav-bar active"><a href="#">首页</a></li>
+					<li class="hui-nav-bar"><a href="#">连接</a></li>
+					<li class="hui-nav-bar"><a href="#">连接</a></li>
+					<li class="hui-nav-bar"><a href="#">连接<i class="hui-icon">&#xe80b;</i></a>
+						<div class="hui-nav-menu">
+							<a href="#">连接1连接1连接1</a>
+							<a href="#">连接2</a>
+						</div>
+					</li>
+					<li class="hui-nav-bar"><a href="#">连接</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="hui-content  hui-c">
+			<div class="hui-content-left  hui-c">
+				<div class="hui-content-box hui-btm">
+					<div class="hui-det-box">
+						<h1>最悲伤作文小学公益组织负责人被警方带走<i class="hui-icon hui-det-book">&#xe825;</i></h1>
+						<div class="hui-det-title hui-c">
+							<div class="hui-l hui-det-mar">文章分类：<a href="#"><span>原创</span></a></div>
+							<div class="hui-l hui-det-mar">发布时间：<span>2015-08-22</span></div>
+							<div class="hui-l hui-det-mar">浏览：<span>0</span></div>
+							<div class="hui-l hui-det-mar">评论：<span>100</span></div>
+						</div>
+						<div class="hui-det-title hui-c">
+							<div class="hui-l hui-det-mar">版权信息：<span>转载请注明出处</span></div>
+						</div>
+					</div>
+					<div class="hui-det-content">
+						<p>
+							早先成都华蓥山蜡像馆蜡像被吐槽“太丑”，近日网友再接再厉拍下最丑蜡像第二波，来自泸州张坝桂圆林景区。 8月29日，第三届江阳桂圆旅游文化节开幕式上，“众多明星空降泸州”吸引了数千名市民和游客，但蜡像与真人差距太大也遭致了网友吐槽。有网友称最丑蜡像第二波袭来，难道是又卸妆了？ 另据报道，针对成都华蓥山蜡像馆太丑问题，蜡像的制作者张守祥也做了说明，这批蜡像制作于2007年，其中包括一些党和国家领导人的蜡像都是按精品级别制作，连皮肤毛孔都清晰可见，“当时为了制作这批蜡像，还动用了中央美院顶级的雕塑大家，比如张照旭、张德华、董祖怡，这些都是中央美院雕塑系的教授级人物，都是这方面的顶级艺术家”。
+						</p>
+						<p>
+							张守祥表示，当时创作这些明星蜡像都是按照其成名作时的电影形象，“比如巩俐，我们是按照她在《红高粱》时期的形象做的蜡像，距离现在最少都20多年，有落差很正常”。 张守祥告诉记者，另外一个导致大家有落差的原因就是明星化妆的问题。“这些明星卸了妆就是这个样子，现在这些明星化妆太厉害了，有些卸了妆你都不认识了。平时看到他们特别漂亮是因为化了妆，并不是因为我们的蜡像做得不像。比如章子怡，她真人的发际线就是这么高，我们只是没有选取她化妆后的照片来创作！” 此外，张守祥表示，蜡像是一种特殊材料，对温度、湿度都有要求，一般来说，正规的蜡像馆1~2年之间就会对蜡像的外貌进行调整，同时对蜡质进行维护，保持蜡像的质感，但是这批蜡像一放就是七八年，没有任何保养，灰尘、褪色、变干都会让蜡像看上去质感不佳，所以他决定将这批明星蜡像全部收回。
+						</p>
+						<p>
+							至于蜡像的服装问题，张守祥解释，那些都是七八年前的作品，现在时代发展那么快，衣服老土也很正常。
+						</p>
+
+					</div>
+					<div class="hui-det-tags">
+						<a><i class="hui-icon">&#xe828;</i>java</a>
+						<a><i class="hui-icon">&#xe828;</i>html</a>
+						<a><i class="hui-icon">&#xe828;</i>css</a>
+						<a><i class="hui-icon">&#xe828;</i>基础</a>
+					</div>
+
+				</div>
+
+				<div class="hui-content-box hui-c">
+					<h4 class="hui-share-box">
+						这篇文章还不错、对我有帮助、解决了我的问题！分享给朋友，点个赞，打赏作者！就是这么任性！
+					</h4>
+				</div>
+				<div class="hui-content-box hui-c hui-btm">
+					<div class="hui-det-footer">
+						<div class="hui-det-footer-s">
+							<i class="hui-icon">&#xe82a;</i>
+						</div>
+						<span>0分享</span>
+					</div>
+					<div class="hui-det-footer">
+						<div class="hui-det-footer-s">
+							<i class="hui-icon">&#xe824;</i>
+						</div>
+						<span>0人赞</span>
+					</div>
+					<div class="hui-det-footer">
+						<div class="hui-det-footer-s">
+							赏
+						</div>
+						<span>0人打赏</span>
+					</div>
+				</div>
+				<div class="hui-content-box hui-c">
+					<h4 class="hui-pl-topTittle">
+						最新评论
+					</h4>
+				</div>
+				<ul class="hui-pl-box hui-btm">
+					<li class="hui-pl-li">
+						<div class="hui-pl-info ">
+							<img class="hui-img" src="img/userIcon.jpg" />
+							<div class="hui-title"> <span>绯色逆麟</span></div>
+							<div class="hui-time"><span>2015-07-01 12:22:45</span></div>
+							<div class="hui-lou">#1楼</div>
+						</div>
+						<p class="hui-pl-description">
+							很多朋友对我说.身边那么多的男孩子为什么还单着？我笑笑.于是他们给我贴上各种标签.花心、要求高、玩世不恭、我懒得解释.一直觉得缘分这种东西是神秘的.该来的时候自然会来.强求不得.我身边围绕的那些男生.我当然懂得.我只是喜欢被疼爱的过程.极度缺乏安全感的孩子.内心自卑的我.怕受伤害的我.选择把自己包裹起来.用微笑引来他们也用来拒绝他们。
+						</p>
+					</li>
+					<li class="hui-pl-li">
+						<div class="hui-pl-info">
+							<img class="hui-img" src="img/userIcon.jpg" />
+							<div class="hui-title"> <span>绯色逆麟</span></div>
+							<div class="hui-time"><span>2015-07-01 12:22:45</span></div>
+							<div class="hui-lou">#2楼</div>
+						</div>
+						<p class="hui-pl-description">
+							很多朋友对我说.身边那么多的男孩子为什么还单着？我笑笑.于是他们给我贴上各种标签.花心、要求高、玩世不恭、我懒得解释.一直觉得缘分这种东西是神秘的.该来的时候自然会来.强求不得.我身边围绕的那些男生.我当然懂得.我只是喜欢被疼爱的过程.极度缺乏安全感的孩子.内心自卑的我.怕受伤害的我.选择把自己包裹起来.用微笑引来他们也用来拒绝他们。
+						</p>
+					</li>
+					<li class="hui-pl-li">
+						<div class="hui-pl-info">
+							<img class="hui-img" src="img/userIcon.jpg" />
+							<div class="hui-title"> <span>绯色逆麟</span></div>
+							<div class="hui-time"><span>2015-07-01 12:22:45</span></div>
+							<div class="hui-lou">#3楼</div>
+						</div>
+						<p class="hui-pl-description">
+							很多朋友对我说.身边那么多的男孩子为什么还单着？我笑笑.于是他们给我贴上各种标签.花心、要求高、玩世不恭、我懒得解释.一直觉得缘分这种东西是神秘的.该来的时候自然会来.强求不得.我身边围绕的那些男生.我当然懂得.我只是喜欢被疼爱的过程.极度缺乏安全感的孩子.内心自卑的我.怕受伤害的我.选择把自己包裹起来.用微笑引来他们也用来拒绝他们。
+						</p>
+					</li>
+				</ul>
+				<div class="hui-content-box hui-c">
+					<h4 class="hui-pl-topTittle">
+						发表评论
+					</h4>
+				</div>
+				<div class="hui-pl-box hui-btm">
+					<div class="hui-pl-info">
+						<img class="hui-img" src="img/userIcon.jpg" />
+						<div class="hui-pl">
+							<textarea placeholder="发表评论" autocomplete="off"></textarea>
+						</div>
+						<div class="hui-pl-btn" onclick="addComment()"><span>发&nbsp;表&nbsp;评&nbsp;论</span></div>
+					</div>
+					<div style="text-indent: 70px;">
+						<font color="red">*</font>不能使用  HTML 标签
+					</div>
+				</div>
+			</div>
+
+			<!--
+            	作者：moli11552@yeah.net
+            	时间：2015-08-26
+            	描述：右边开始
+            -->
+			<div class="hui-content-right  hui-c">
+				<div class="hui-content-box hui-btm">
+					<div class="hui-user">
+						<div class="hui-user-line"></div>
+						<img src="img/user.jpg" class="huc-user-icon" />
+						<div class="hui-user-info">
+							<span class="hui-user-title">Huc</span>
+							<span>软件工程师</span>
+							<span><i class="hui-icon hui-font-20">&#xe826;</i><a target="_blank" href="https://github.com/threefish?tab=repositories">GitHub</a></span>
+						</div>
+						<a class="hui-about-me">关于我</a>
+						<div class="hui-user-email">
+							<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=xPf08v3x8ff09oS1teqnq6k" style="text-decoration:none;">
+								<img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="hui-content-box hui-btm">
+					<div id="calendar" style="width: 270px;"></div>
+				</div>
+				<div class="hui-content-box hui-btm">
+					<div class="hui-content-box--title">
+						<h4>分类目录</h4>
+						<a href="#">More</a>
+					</div>
+					<ul>
+						<li><a href="#">Scss position的正确用法</a></li>
+						<li><a href="#">Sublime Text 3中文优化版【前端开发神器】</a></li>
+						<li><a href="#">通过预加载器提升网页加载速度</a></li>
+					</ul>
+				</div>
+				<div class="hui-content-box hui-btm">
+					<div class="hui-content-box--title">
+						<h4>标签云</h4>
+					</div>
+					<div class="hui-tags hui-c">
+						<a href="#" title="javascript">javascript</a>
+						<a href="#" title="Html/CSS">Html/CSS</a>
+						<a href="#" title="java">java</a>
+						<a href="#" title="服务器服务器服务器服务器">服务器服务器服务器服务器</a>
+						<a href="#" title="linux">linux</a>
+						<a href="#" title="配置">配置</a>
+						<a href="#" title="服务器服务器服务器服务器">服务器服务器服务器服务器</a>
+						<a href="#" title="linux">linux</a>
+						<a href="#" title="配置">配置</a>
+						<a href="#" title="服务器服务器服务器服务器">服务器服务器服务器服务器</a>
+						<a href="#" title="linux">linux</a>
+						<a href="#" title="配置">配置</a>
+					</div>
+				</div>
+				<div class="hui-content-box hui-btm">
+					<!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height=86 src="http://music.163.com/outchain/player?type=2&id=30953009&auto=1&height=66"></iframe>-->
+				</div>
+			</div>
+		</div>
+		<div class="hui-fix-menu" onclick="scrollTo(0,0)"><i class="hui-icon">&#xe821;</i></div>
+		<div class="hui-footer">
+			<div class="hui-copyright">
+				(c) Copyright 2015 Huc. All Rights Reserved.
+			</div>
+		</div>
+	</body>
+
+</html>

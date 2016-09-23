@@ -1,0 +1,937 @@
+@charset "utf-8";
+html,
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0
+}
+
+ul,
+li {
+    list-style: none
+}
+
+body {
+    color: #6f7b8a;
+    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif, "\5b8b\4f53";
+    font-size: 13px;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1.5;
+    font-style: normal;
+    font-weight: normal;
+    height: 100%;
+    background: url("../../static/img/bg3.jpg");
+    min-width: 1300px;
+}
+
+*::-moz-selection {
+    background: #C1DAC6;
+    color: #1C5C63;
+}
+
+*::selection {
+    background: #C1DAC6;
+    color: #1C5C63;
+}
+
+a {
+    text-decoration: none
+}
+
+.hui-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    color: #909090;
+    background: #fff;
+    box-shadow: 0 1px 3px 0 #6c718b;
+    -webkit-box-shadow: 0 1px 3px 0 #6c718b;
+    -moz-box-shadow: 0 1px 3px 0 #6c718b;
+    box-shadow: 0 1px 3px 0 #6c718b;
+}
+
+.hui-header-show {
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    -webkit-animation: hdnav2-show .3s;
+    -moz-animation: hdnav2-show .3s;
+    -o-animation: hdnav2-show .3s;
+    animation: hdnav2-show .3s;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2)
+}
+
+.hui-header-hide {
+    -webkit-transform: translateY(-60px);
+    -ms-transform: translateY(-60px);
+    transform: translateY(-60px);
+    -webkit-transition: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -moz-transition: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -o-transition: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19)
+}
+
+.hui-header-hide .hui-top-menu {
+    top: 65px;
+}
+
+.hui-header-hide .hui-g-search {
+    top: 69px;
+}
+
+.hui-header-hide .hui-top-logo_long {
+    top: 65px;
+    width: 220px;
+    z-index: 101;
+    left: 0px;
+    background: #fff;
+}
+
+.hui-header-hide .hui-nav-box {
+
+}
+
+.hui-header-hide .hui-s-logo {
+    visibility: hidden;
+    display: none;
+}
+
+.hui-product {
+    display: -webkit-box;
+    height: 59px;
+    position: relative;
+    background: #f5f5f5;
+    border-bottom: 1px #CCE4E3 solid;
+    /* max-width: 1366px; */
+    margin: 0 auto;
+}
+
+.hui-g-search {
+    position: absolute;
+    top: 12px;
+    right: 15%;
+}
+
+.hui-g-search input {
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+    border: none;
+    border: 1px #CDCDCD solid;
+    background: #FFFFFF;
+    text-indent: 1em;
+    border-radius: 5px;
+}
+
+.hui-g-search span {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.hui-nav {
+    max-width: 1366px;
+    /* height: 50px; */
+    /* margin-top: -1px; */
+    /* background: #fff; */
+    /* line-height: 50px; */
+    /* z-index: 100; */
+    /* box-shadow: 0 1px 3px 0 #6c718b; */
+    /* -webkit-box-shadow: 0 1px 3px 0 #6c718b; */
+    -moz-box-shadow: 0 1px 3px 0 #6c718b;
+    /* box-shadow: 0 1px 3px 0 #6c718b; */
+    margin: 0 auto;
+}
+
+.hui-nav-large {
+    height: 50px;
+    line-height: 50px;
+}
+
+.hui-nav-box {
+
+}
+
+.hui-c:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+    zoom: 1
+}
+
+.hui-top-logo_long {
+    width: 300px;
+    height: 40px;
+    position: absolute;
+    /* left: 8%; */
+    line-height: 40px;
+    font-size: 25px;
+    text-align: center;
+    top: 10px;
+    margin-left: -300px;
+    left: 30%;
+}
+
+.hui-fix-menu {
+    position: fixed;
+    bottom: 15%;
+    width: 40px;
+    height: 50px;
+    right: 10px;
+    border-radius: 5px;
+    background-color: #606466;
+    color: #fff;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hui-top-menu {
+    position: absolute;
+    top: 10px;
+    right: 5%
+}
+
+.hui-top-menu a:hover {
+    border: 2px #cdcdcd solid;
+    margin: -2px;
+    color: red
+}
+
+.hui-top-menu a {
+    font-size: 15px;
+    color: #6d7377;
+    font-weight: bold;
+    float: left;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 60px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.hui-blod {
+    font-weight: bold
+}
+
+.hui-nav-bar {
+    float: left;
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    border: 0;
+    color: #6f7b8a;
+    font-size: 15px;
+    cursor: hand;
+    position: relative;
+    z-index: 99;
+    -webkit-transition: background ease-in-out .3s;
+    transition: background ease-in-out .3s;
+}
+
+.hui-hide {
+    display: none
+}
+
+.hui-nav-bar li {
+    height: 30px
+}
+
+.hui-nav-bar a {
+    color: #666;
+    font-size: 18px;
+}
+
+.hui-nav-bar:hover {
+    background: #61B3E6
+}
+
+.hui-nav-bar:hover > a {
+    color: #fff;
+}
+
+.hui-nav-bar:hover > div {
+    background: #fff;
+    display: block !important;
+    line-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    font-size: 13px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 0;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    padding: 10px 5px;
+}
+
+.hui-nav-bar > div a {
+    display: block !important;
+    margin: 0 8px 0 8px;
+    font-size: 14px;
+    color: #666;
+    text-align: left
+}
+
+.hui-nav-bar > div a:hover {
+    color: #419bd7
+}
+
+.hui-nav-bar.active {
+    background: #61B3E6;
+    color: #ffffff;
+}
+
+.hui-nav-bar.active a {
+    color: #fff;
+}
+
+.hui-content {
+    display: block !important;
+    margin: 130px 0 20px 0;
+    max-width: 1366px;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 150px;
+    padding-bottom: 50px;
+}
+
+.hui-content-box--time {
+    float: right;
+    vertical-align: top;
+    color: #8e8787;
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    line-height: 40px;
+}
+
+.hui-user {
+    width: 100%;
+    height: 180px;
+    background: #fff;
+    float: right;
+    text-align: right;
+    position: relative;
+    min-width: 270px
+}
+
+.huc-user-icon {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    top: 30px;
+    right: 15px;
+    border: 1px #cdcdcd solid
+}
+
+.hui-user-info {
+    position: absolute;
+    text-align: right;
+    line-height: 30px;
+    font-size: 14px;
+    right: 155px;
+    top: 30px
+}
+
+.hui-user-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2f8bb3
+}
+
+.hui-user-info span {
+    display: block !important
+}
+
+.hui-user-email {
+    position: absolute;
+    right: 15px;
+    bottom: 10px
+}
+
+.hui-content-box {
+    display: block !important;
+    background: #fff
+}
+
+.hui-btm {
+    clear: both;
+    margin-bottom: 10px
+}
+
+.hui-about-me {
+    position: absolute;
+    right: 155px;
+    bottom: 12px;
+    background: #00a8ff;
+    color: #fff;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px
+}
+
+.hui-content-box:after {
+    display: block !important;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+    zoom: 1
+}
+
+.hui-content-box li {
+    color: #428bd1;
+    font-size: 13px;
+    position: relative
+}
+
+.hui-content-box li > a {
+    color: #428bd1;
+    display: block !important;
+    line-height: 20px;
+    border-bottom: 1px #f0eaea solid;
+    padding: 10px;
+}
+
+.hui-content-box li > a:hover {
+    color: #428b31
+}
+
+.hui-nav-menu {
+    display: none !important;
+    box-shadow: 0 1px 2px #989090;
+    -webkit-box-shadow: 0 1px 2px #989090;
+    -moz-box-shadow: 0 1px 2px #989090;
+    box-shadow: 0 1px 2px #989090
+}
+
+.hui-content-box--title {
+    height: 40px;
+    background: #f7f7f7;
+    color: #333;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: right;
+    padding: 5px;
+}
+
+.hui-content-box--title h4 {
+    text-indent: 10px;
+    display: block !important;
+    float: left;
+    margin: 0;
+    padding: 0;
+    color: #444
+}
+
+.hui-content-box--title b {
+    border-left: 3px #5db010 solid;
+    margin-left: 5px;
+    float: left;
+    display: block;
+    height: 30px;
+    margin-top: 5px
+}
+
+.hui-content-box--title a {
+    padding-right: 20px;
+    color: #b3b1b3
+}
+
+.hui-content-left {
+    width: 75%;
+    float: left
+}
+
+.hui-content-right {
+    width: 280px;
+    float: right;
+}
+
+.hui-list li {
+    background: #fff
+}
+
+.hui-list li:hover {
+    background: #d8e7f7
+}
+
+.hui-block {
+    display: block;
+    display: block !important;
+    display: -webkit-box
+}
+
+.hui-list.hui-title-box {
+    height: 40px;
+    line-height: 40px;
+    margin-left: 15px;
+    margin-right: 15px
+}
+
+.hui-title h3 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 17px;
+    display: -webkit-inline-box;
+    display: inline-block !important;
+    display: -moz-inline-box;
+}
+
+.hui-list-box {
+    border-bottom: 1px #e2e2e2 solid;
+    padding: 8px;
+}
+
+.hui-list-box:hover {
+    -webkit-box-shadow: 0 0 15px rgba(0, 204, 204, .3);
+    -moz-box-shadow: 0 0 15px rgba(0, 204, 204, .3);
+    box-shadow: 0 0 15px rgba(0, 204, 204, .3);
+    border-right: 4px solid #3c9dff;
+    margin-right: -4px
+}
+
+.hui-list-box:hover div > a:nth-child(2) {
+    color: #1d568c
+}
+
+.hui-list-box:hover p {
+    color: #000
+}
+
+.hui-list-box-footer {
+    margin-left: 15px;
+    line-height: 30px;
+    /* height: 11px; */
+    text-align: right;
+    color: #aeabab;
+    border-top: 1px #e5e4e4 dashed;
+    display: block;
+    margin-top: 24px;
+}
+
+.hui-list-box-footer span {
+    width: 100px;
+    padding-right: 20px
+}
+
+.hui-list-box-footer a {
+    color: #00aba9
+}
+
+.hui-list-box p {
+    color: #83827e;
+    font-size: 14px;
+    line-height: 25px;
+    margin: 0px 15px;
+    padding: 0;
+    text-align: justify;
+    height: 70px;
+    overflow: hidden;
+}
+
+.hui-list.hui-tag {
+    background: #6a86cf;
+    width: 80px;
+    height: 40px;
+    padding: 2px 5px;
+    color: #fff;
+    font-size: 12px
+}
+
+.hui-list.hui-title {
+    width: 180px;
+    height: 40px;
+    color: #428bd1;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.hui-l {
+    display: block !important;
+    float: left
+}
+
+.hui-s-logo {
+    width: 40px;
+    height: 40px;
+    background: #f54766;
+    margin-right: 35px
+}
+
+.hui--50 {
+    width: 50%
+}
+
+.hui-tags {
+    padding: 10px;
+    text-align: justify
+}
+
+.hui-tags a {
+    color: #aeadad;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    width: 33.3333%;
+    margin: 3px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-indent: 5px;
+    float: left
+}
+
+.hui-tags a:hover {
+    background-color: #65b9e7;
+    color: #fff;
+    border-left: 3px #1d6dc8 solid;
+    margin-left: -3px
+}
+
+@font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.eot?6842876');
+    src: url('../font/fontello.eot?6842876#iefix') format('embedded-opentype'), url('../font/fontello.woff?6842876') format('woff'), url('../font/fontello.ttf?6842876') format('truetype'), url('../font/fontello.svg?6842876#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal
+}
+
+.hui-icon {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-right: 2px
+}
+
+.hui-font-12 {
+    font-size: 12px
+}
+
+.hui-font-13 {
+    font-size: 13px;
+}
+
+.hui-font-14 {
+    font-size: 14px
+}
+
+.hui-font-15 {
+    font-size: 15px
+}
+
+.hui-font-16 {
+    font-size: 16px
+}
+
+.hui-font-17 {
+    font-size: 17px
+}
+
+.hui-font-18 {
+    font-size: 18px
+}
+
+.hui-font-19 {
+    font-size: 19px
+}
+
+.hui-font-20 {
+    font-size: 20px
+}
+
+.hui-footer {
+    color: #888;
+    text-align: center;
+    background: #333
+}
+
+.hui-user-line {
+    width: 100%;
+    height: 5px;
+    background: url("../img/newsletter_line.png") repeat center center !important
+}
+
+.hui-copyright {
+    padding: 1em;
+    text-align: center;
+    color: #787782;
+    background: #1B1935;
+}
+
+.hui-big-tag {
+    display: block !important;
+    text-align: center;
+    background: #F66;
+    color: #fff;
+    height: 145px;
+    line-height: 145px;
+    margin: 5%
+}
+
+.hui-det-box {
+    padding: 30px 15px 0px 15px;
+    border-bottom: 1px #EFDDDD solid;
+    background: #F9F7F5;
+}
+
+.hui-det-box h1 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.hui-det-title {
+    margin: 8px 0px;
+    font-size: 14px;
+    color: #C5BFBF;
+}
+
+.hui-det-title a {
+    color: #000000;
+}
+
+.hui-det-title span {
+    color: #00A8FF;
+}
+
+.hui-det-mar {
+    margin-right: 15px;
+}
+
+.hui-det-mor {
+    color: #C5BFBF;
+    background: transparent;
+}
+
+.hui-det-mor span {
+    padding-right: 10px;
+}
+
+.hui-det-book {
+    color: #3DA7C0;
+}
+
+.hui-det-content {
+    padding: 0px 15px;
+}
+
+.hui-det-content p {
+    font-size: 18px;
+    text-indent: 2em;
+    text-align: justify;
+    line-height: 35px;
+}
+
+.hui-det-tags {
+    width: 100%;
+    font-size: 14px;
+    color: rgb(37, 166, 203);
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px #cdcdcd solid;
+    border-bottom: 1px #cdcdcd solid;
+}
+
+.hui-det-tags a {
+    float: right;
+    padding: 0px 15px 0px 0px;
+}
+
+.hui-det-footer {
+    float: left;
+    width: 33.333333333333%;
+    background: #F2F1F1;
+    color: rgb(49, 168, 114);
+    position: relative;
+    box-shadow: 0 1px 0px 0px #6c718b;
+}
+
+.hui-det-footer-s {
+    line-height: 80px;
+    height: 105px;
+    text-align: center;
+    font-size: 40px;
+    border-right: 1px #cdcdcd solid;
+}
+
+.hui-det-footer span {
+    position: absolute;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    color: #939292;
+    top: 70px;
+}
+
+.hui-pl-box {
+    display: block;
+    display: block !important;
+    display: -webkit-box;
+    background: #fff;
+    padding-bottom: 50px;
+}
+
+.hui-pl-li {
+    color: #428bd1;
+    font-size: 14px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.hui-pl-info {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    border-top: 1px #CBCFCF dashed;
+}
+
+.hui-pl-info > .hui-img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.hui-pl-info > .hui-title {
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    color: #555;
+}
+
+.hui-pl-info > .hui-lou {
+    right: 15px;
+    top: 15px;
+    position: absolute;
+    color: #568884;
+}
+
+.hui-pl-info > .hui-time {
+    font-size: 14px;
+    position: absolute;
+    top: 40px;
+    left: 70px;
+    color: #ABABAB;
+}
+
+.hui-pl-description {
+    line-height: 1.5;
+    color: #807F7F;
+    background-color: #fafafa;
+    padding: 0px 15px;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+.hui-pl-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    height: 55px;
+    line-height: 55px;
+    background: #fe9833;
+    color: #fff;
+    padding: 0 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: justify;
+    cursor: pointer;
+}
+
+.hui-pl-btn:hover {
+    background: #cf7b27;
+}
+
+.hui-pl {
+    position: absolute;
+    top: 10px;
+    left: 70px;
+}
+
+.hui-pl textarea {
+    width: 600px;
+    height: 50px;
+    min-height: 50px;
+    resize: none;
+    margin-bottom: 10px;
+    display: block;
+    border: 1px #67B354 solid;
+    border-radius: 5px;
+    max-height: 150px;
+}
+
+.hui-pl-confirm {
+    line-height: 40px;
+}
+
+.hui-pl-confirm input {
+    width: 310px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.hui-pl-confirm img {
+    width: 100%;
+    height: 30px;
+}
+
+.hui-pl-confirm font {
+    color: red;
+}
+
+.hui-pl-topTittle {
+    margin: 0px !important;
+    padding: 0px !important;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+}
+
+.hui-share-box {
+    background: #F2F1F1;
+    border-bottom: 1px #cdcdcd solid;
+    text-align: center;
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+}
