@@ -6,11 +6,14 @@ import org.beetl.core.Configuration;
 import org.beetl.core.GroupTemplate;
 import org.beetl.core.Template;
 import org.beetl.core.resource.WebAppResourceLoader;
+import org.beetl.ext.web.SessionWrapper;
+import org.beetl.ext.web.WebVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Enumeration;
 import java.util.Map;
 
 /**
@@ -24,9 +27,8 @@ public class BeetlView implements View {
 
     private static GroupTemplate gt = null;
 
-    /**
-     * 默认格式
-     */
+    private final static String _prefix = "/_view_/btl/";
+
     private final static String _suffix = ".html";
 
     static {
@@ -34,7 +36,7 @@ public class BeetlView implements View {
             WebAppResourceLoader resourceLoader = new WebAppResourceLoader();
             Configuration cfg = Configuration.defaultConfiguration();
             resourceLoader.setCharset("utf-8");
-            resourceLoader.setRoot(Mvcs.getSession().getServletContext().getRealPath("/_view_/btl/"));
+            resourceLoader.setRoot(Mvcs.getSession().getServletContext().getRealPath(_prefix));
             gt = new GroupTemplate(resourceLoader, cfg);
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,12 +52,35 @@ public class BeetlView implements View {
             } else {
                 tpl.binding("data", data, true);
             }
+            Enumeration<String> attrs = request.getAttributeNames();
+            while (attrs.hasMoreElements()) {
+                String attrName = attrs.nextElement();
+                tpl.binding(attrName, request.getAttribute(attrName));
+            }
+            WebVariable webVariable = new WebVariable();
+            webVariable.setRequest(request);
+            webVariable.setResponse(response);
+            webVariable.setSession(request.getSession());
+            tpl.binding("session", new SessionWrapper(webVariable.getSession()));
+            tpl.binding("servlet", webVariable);
+            tpl.binding("request", request);
+            tpl.binding("ctxPath", request.getContextPath());
             tpl.binding("base", request.getContextPath());
+
             OutputStream out = response.getOutputStream();
             tpl.renderTo(response.getOutputStream());
             out.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            handleClientError(e);
         }
+    }
+
+    /**
+     * 处理客户端抛出的IO异常
+     *
+     * @param ex
+     */
+    protected void handleClientError(IOException ex) {
+        ex.printStackTrace();
     }
 }

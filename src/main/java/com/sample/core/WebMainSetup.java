@@ -18,7 +18,6 @@ import javax.servlet.ServletContextEvent;
 public class WebMainSetup implements WebSetup {
 
     public void init(ServletContextEvent servletContextEvent) {
-        System.out.println("服务器启动");
         ViewsRegister.registerView("freemarker", FreeMarkerView.class);
         ViewsRegister.registerView("beetl", BeetlView.class);
     }

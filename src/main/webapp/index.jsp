@@ -1,1 +1,3 @@
-<%request.getRequestDispatcher("/main/index").forward(request,response);%>
+<%
+    response.sendRedirect(request.getContextPath()+"/main/index");
+%>
