@@ -1,10 +1,10 @@
 package com.sample.dao;
 
-import com.sgaop.web.frame.server.cache.CacheManager;
-import com.sgaop.web.frame.server.cache.StaticCacheManager;
-import com.sgaop.web.frame.server.dao.*;
-import com.sgaop.web.frame.server.ioc.annotation.IocBean;
-import com.sgaop.web.frame.server.util.DaoUtil;
+import com.sgaop.basis.cache.CacheManager;
+import com.sgaop.basis.cache.StaticCacheManager;
+import com.sgaop.basis.dao.*;
+import com.sgaop.basis.annotation.IocBean;
+import com.sgaop.basis.util.DaoUtil;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;

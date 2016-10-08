@@ -1,7 +1,8 @@
 package com.sample.view;
 
-import com.sgaop.web.frame.server.mvc.Mvcs;
-import com.sgaop.web.frame.server.mvc.view.View;
+import com.sgaop.basis.mvc.Mvcs;
+import com.sgaop.basis.mvc.view.View;
+import org.apache.log4j.Logger;
 import org.beetl.core.Configuration;
 import org.beetl.core.GroupTemplate;
 import org.beetl.core.Template;
@@ -24,6 +25,8 @@ import java.util.Map;
  * 自定义的Beetl视图
  */
 public class BeetlView implements View {
+
+    private static final Logger logger = Logger.getRootLogger();
 
     private static GroupTemplate gt = null;
 
@@ -68,7 +71,7 @@ public class BeetlView implements View {
             tpl.binding("base", request.getContextPath());
 
             OutputStream out = response.getOutputStream();
-            tpl.renderTo(response.getOutputStream());
+            tpl.renderTo(out);
             out.flush();
         } catch (IOException e) {
             handleClientError(e);
@@ -81,6 +84,6 @@ public class BeetlView implements View {
      * @param ex
      */
     protected void handleClientError(IOException ex) {
-        ex.printStackTrace();
+        logger.error(ex);
     }
 }

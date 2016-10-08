@@ -1,6 +1,6 @@
 package com.sample.action;
 
-import com.sgaop.web.frame.server.mvc.annotation.*;
+import com.sgaop.basis.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Path//默认使用方法名
  * @WebController 标识这是一个可访问的webAction
  */
-@WebController("/main")
+@Control("/main")
 public class MainAction {
 
     @OK("beetl:index")
