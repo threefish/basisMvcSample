@@ -1,7 +1,5 @@
 package com.sample.action;
 
-import com.google.gson.Gson;
-import com.sample.entity.UserAccount;
 import com.sgaop.basis.annotation.*;
 import com.sgaop.basis.dao.Dao;
 
@@ -31,10 +29,25 @@ public class TopicAction {
     @OK("beetl:index")
     @GET
     @Path("/index")
+    @Aop({"TestAop"})
     public void index(HttpSession session, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
-        System.out.println(request);
-        System.out.println(response);
-        UserAccount userAccount= dao.querySinge(UserAccount.class,"id=?",1);
-        System.out.println(new Gson().toJson(userAccount));
+        System.out.println(request.getContextPath());
+//        UserAccount userAccount= dao.querySinge(UserAccount.class,"id=?",1);
+//        System.out.println(new Gson().toJson(userAccount));
+    }
+
+    @OK("beetl:index")
+    @GET
+    @Path("/index2")
+    public void index2(HttpSession session, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("index2");
+    }
+
+    @OK("beetl:index")
+    @GET
+    @Path("/index3")
+    @Aop({"TestAop"})
+    public void index3(HttpSession session, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("index3");
     }
 }

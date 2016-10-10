@@ -1,6 +1,7 @@
 package com.sample.action;
 
 import com.sgaop.basis.annotation.*;
+import com.sgaop.basis.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,8 +19,12 @@ import javax.servlet.http.HttpServletRequest;
  * @Path//默认使用方法名
  * @WebController 标识这是一个可访问的webAction
  */
+@IocBean("MainAction")
 @Control("/main")
 public class MainAction {
+
+    @Inject("dao")
+    private Dao dao;
 
     @OK("beetl:index")
     @GET
