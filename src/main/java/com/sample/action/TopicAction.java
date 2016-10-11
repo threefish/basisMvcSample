@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by 30695 on 2016/9/24 0024.
  */
-@IocBean("topicAction")
+@IocBean("TopicAction")
 @Control("/topic")
 public class TopicAction {
 
@@ -46,7 +46,7 @@ public class TopicAction {
     @OK("beetl:index")
     @GET
     @Path("/index3")
-    @Aop({"TestAop"})
+    @Aop({"TarnsAop"})
     public void index3(HttpSession session, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
         System.out.println("index3");
     }

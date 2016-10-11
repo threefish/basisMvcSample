@@ -12,8 +12,8 @@ import java.lang.reflect.Method;
  * Date: 2016/10/9 0009
  * To change this template use File | Settings | File Templates.
  */
-@IocBean("TestAop")
-public class TestAop extends AbstractMethodInterceptor {
+@IocBean("TarnsAop")
+public class TarnsAop extends AbstractMethodInterceptor {
 
     @Override
     protected void finalize(Object obj, Method method, Object[] args, MethodProxy proxy) {
@@ -27,11 +27,11 @@ public class TestAop extends AbstractMethodInterceptor {
 
     @Override
     protected void after(Object obj, Method method, Object[] args, MethodProxy proxy) {
-        System.out.println("方法执行后");
+        System.out.println("方法执行后1");
     }
 
     @Override
     protected void before(Object obj, Method method, Object[] args, MethodProxy proxy) {
-        System.out.println("方法执行前");
+        System.out.println("方法执行前2");
     }
 }
