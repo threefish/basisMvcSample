@@ -103,13 +103,26 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.38</version>
         </dependency>
+
         <dependency>
             <groupId>basisMvc</groupId>
             <artifactId>com.sgaop.basis</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/com.sgaop.basis-1.0.jar</systemPath>
         </dependency>
+
+        <dependency>
+            <groupId>views</groupId>
+            <artifactId>com.sgaop.basis.plugin</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>basisMvc</groupId>-->
+            <!--<artifactId>com.sgaop.basis</artifactId>-->
+            <!--<version>1.0</version>-->
+            <!--<scope>system</scope>-->
+            <!--<systemPath>${project.basedir}/lib/com.sgaop.basis-1.0.jar</systemPath>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>

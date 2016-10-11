@@ -1,9 +1,9 @@
 package com.sample.core;
 
-import com.sample.view.BeetlView;
-import com.sample.view.FreeMarkerView;
 import com.sgaop.basis.annotation.Setup;
 import com.sgaop.basis.mvc.view.ViewsRegister;
+import com.sgaop.basis.plugin.views.BeetlView;
+import com.sgaop.basis.plugin.views.FreeMarkerView;
 import com.sgaop.basis.web.WebSetup;
 
 import javax.servlet.ServletContextEvent;
