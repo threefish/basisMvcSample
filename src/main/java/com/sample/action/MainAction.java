@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * @OK("fw:testpage.jsp")//转发
  * @GET//请求方式
  * @Path//默认使用方法名
- * @WebController 标识这是一个可访问的webAction
+ * @Control 标识这是一个可访问的webAction
  */
 @IocBean("MainAction")
 @Control("/main")
@@ -29,10 +29,17 @@ public class MainAction {
     @OK("beetl:index")
     @GET
     @Path("/index")
+    @Aop("allAop")
     public void index(HttpServletRequest request){
         System.out.println("index");
     }
 
+    @OK("beetl:index")
+    @GET
+    @Path("/index2")
+    public void index2(HttpServletRequest request) {
+        System.out.println("index2");
+    }
 
 //    @OK("jsp:testpage.jsp")
 //    @GET
