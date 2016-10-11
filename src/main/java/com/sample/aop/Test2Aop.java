@@ -12,17 +12,15 @@ import java.lang.reflect.Method;
  * Date: 2016/10/9 0009
  * To change this template use File | Settings | File Templates.
  */
-@IocBean("TestAop")
-public class TestAop extends AopProxy {
+@IocBean("test2aop")
+public class Test2Aop extends AopProxy {
 
     private static final Logger logger = Logger.getRootLogger();
-
-    private long begin;
 
 
     @Override
     public void before(Class<?> cls, Method method, Object[] params) throws Throwable {
-        logger.debug("---------- before testaop ----------");
+        logger.debug("---------- before test2aop ----------");
     }
 
     @Override
