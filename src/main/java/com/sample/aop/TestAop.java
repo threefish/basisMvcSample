@@ -1,7 +1,7 @@
 package com.sample.aop;
 
 import com.sgaop.basis.annotation.IocBean;
-import com.sgaop.basis.aop.AopProxy;
+import com.sgaop.basis.aop.InterceptorProxy;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Method;
@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  * To change this template use File | Settings | File Templates.
  */
 @IocBean("TestAop")
-public class TestAop extends AopProxy {
+public class TestAop extends InterceptorProxy {
 
     private static final Logger logger = Logger.getRootLogger();
 
