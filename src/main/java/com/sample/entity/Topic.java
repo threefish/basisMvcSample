@@ -3,6 +3,7 @@ package com.sample.entity;
 import com.sgaop.basis.annotation.Colum;
 import com.sgaop.basis.annotation.Pk;
 import com.sgaop.basis.annotation.Table;
+
 import java.sql.Timestamp;
 
 /**

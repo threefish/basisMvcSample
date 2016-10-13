@@ -62,7 +62,7 @@ public class ImageUtil {
                 // 设置 Font
                 g.setFont(new Font("楷体", Font.HANGING_BASELINE, 22));
                 g.drawString(logoText, srcImg.getWidth(null) - right, srcImg.getHeight(null) - buttom);
-                g.drawImage(img, srcImg.getWidth(null) - (right+imgIcon.getIconWidth()), srcImg.getHeight(null)-(buttom+ imgIcon.getIconHeight()), null);
+                g.drawImage(img, srcImg.getWidth(null) - (right + imgIcon.getIconWidth()), srcImg.getHeight(null) - (buttom + imgIcon.getIconHeight()), null);
             } else {
                 // 表示水印图片的位置
                 g.drawImage(img, srcImg.getWidth(null) - (right + imgIcon.getIconWidth()), srcImg.getHeight(null) - (buttom + imgIcon.getIconHeight()), null);

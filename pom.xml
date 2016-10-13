@@ -44,6 +44,26 @@
             <version>3.1.0</version>
         </dependency>
 
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- SLFJ -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.13</version>
+        </dependency>
+        <!-- MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.36</version>
+        </dependency>
+
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -98,6 +118,7 @@
             <artifactId>druid</artifactId>
             <version>1.0.19</version>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -111,17 +132,23 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+
+        <dependency>
             <groupId>views</groupId>
             <artifactId>com.sgaop.basis.plugin</artifactId>
             <version>1.0</version>
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>basisMvc</groupId>-->
-            <!--<artifactId>com.sgaop.basis</artifactId>-->
-            <!--<version>1.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${project.basedir}/lib/com.sgaop.basis-1.0.jar</systemPath>-->
+        <!--<groupId>basisMvc</groupId>-->
+        <!--<artifactId>com.sgaop.basis</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/lib/com.sgaop.basis-1.0.jar</systemPath>-->
         <!--</dependency>-->
     </dependencies>
 

@@ -62,9 +62,9 @@ a {
     -moz-animation: hdnav2-show .3s;
     -o-animation: hdnav2-show .3s;
     animation: hdnav2-show .3s;
-    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
-    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
-    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2)
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2)
 }
 
 .hui-header-hide {

@@ -16,7 +16,7 @@ public class AllAop implements Proxy {
     @Override
     public Object doProxy(ProxyChain proxyChain) throws Throwable {
         System.out.println("执行前");
-        Object re= proxyChain.invokeSuper();
+        Object re = proxyChain.invokeSuper();
         System.out.println("执行后");
         return re;
     }

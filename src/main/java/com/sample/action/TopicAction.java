@@ -2,6 +2,8 @@ package com.sample.action;
 
 import com.sgaop.basis.annotation.*;
 import com.sgaop.basis.dao.Dao;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresUser;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpSession;
  */
 @IocBean
 @Control("/topic")
+@RequiresUser
 public class TopicAction {
 
     private HttpServletRequest request;
@@ -30,6 +33,7 @@ public class TopicAction {
     @GET
     @Path("/index")
     @Aop({"TestAop"})
+    @RequiresPermissions("看帖子")
     public void index(HttpSession session, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
         System.out.println(request.getContextPath());
 //        UserAccount userAccount= dao.querySinge(UserAccount.class,"id=?",1);

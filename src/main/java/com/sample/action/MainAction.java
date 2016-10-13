@@ -30,7 +30,7 @@ public class MainAction {
     @GET
     @Path("/index")
     @Aop("allAop")
-    public void index(HttpServletRequest request){
+    public void index(HttpServletRequest request) {
         System.out.println("index");
     }
 

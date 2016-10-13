@@ -1,57 +1,65 @@
 @charset "utf-8";
 .date-clendar {
-	background: #FFFFFF;
-	display: block;
-	margin: 0 auto;
+    background: #FFFFFF;
+    display: block;
+    margin: 0 auto;
 }
+
 .date-top {
-	width: 200px;
-	height: 30px;
-	line-height: 30px;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 14px;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
 }
+
 .date-top--cen {
-	display: inline-block !important;
-	float: left;
-	width: 100px;
+    display: inline-block !important;
+    float: left;
+    width: 100px;
 }
+
 .date-top--next {
-	display: inline-block !important;
-	float: left;
-	width: 50px;
-	cursor: pointer;
-	color: #c5bfbf;
+    display: inline-block !important;
+    float: left;
+    width: 50px;
+    cursor: pointer;
+    color: #c5bfbf;
 }
+
 .head-week {
-	height: 25px;
-	line-height: 25px;
-	display: inline-block;
-	float: left;
-	color: rgb(121, 144, 187);
-	font-weight: bold;
-	text-align: center;
-	font-size: 16px;
-	border-bottom: 1px #cdcdcd dashed;
-	margin-bottom: 5px;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    float: left;
+    color: rgb(121, 144, 187);
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px #cdcdcd dashed;
+    margin-bottom: 5px;
 }
+
 .day {
-	display: inline-block !important;
-	float: left;
-	cursor: pointer;
-	text-align: center;
-	height: 35px;
-	line-height: 35px;
+    display: inline-block !important;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
 }
+
 .day:hover {
-	margin: -1px;
-	border: 1px #CDCDCD dashed;
+    margin: -1px;
+    border: 1px #CDCDCD dashed;
 }
+
 .day.active {
-	background: #5F5B5B;
-	color: #fff;
+    background: #5F5B5B;
+    color: #fff;
 }
+
 .day.notvis {
-	color: #BFBFBF;
+    color: #BFBFBF;
 }

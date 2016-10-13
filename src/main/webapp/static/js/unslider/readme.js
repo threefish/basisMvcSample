@@ -1,24 +1,24 @@
 //调用方式
-$(function() {
-	if (window.chrome) {
-		$('.banner li').css('background-size', '100% 100%');
-	}
-	$('.banner').unslider({
-		arrows: true,
-		dots: true
-	});
-	//处理点击页面a标签 href=#不滚动页面
-	$('a[href^="#"]').click(function() {
-		var target = $($(this).attr('href'));
-		var pos = target.offset();
-		if (pos) {
-			$('html, body').animate({
-				scrollTop: pos.top,
-				scrollLeft: pos.left
-			}, 1000);
-		}
-		return false;
-	});
+$(function () {
+    if (window.chrome) {
+        $('.banner li').css('background-size', '100% 100%');
+    }
+    $('.banner').unslider({
+        arrows: true,
+        dots: true
+    });
+    //处理点击页面a标签 href=#不滚动页面
+    $('a[href^="#"]').click(function () {
+        var target = $($(this).attr('href'));
+        var pos = target.offset();
+        if (pos) {
+            $('html, body').animate({
+                scrollTop: pos.top,
+                scrollLeft: pos.left
+            }, 1000);
+        }
+        return false;
+    });
 });
 
 //HTML
