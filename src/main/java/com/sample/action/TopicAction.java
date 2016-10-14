@@ -44,6 +44,7 @@ public class TopicAction {
     @GET
     @Path("/index2")
     @Aop({"test2aop"})
+    @RequiresPermissions("看帖子2")
     public void index2() {
         System.out.println("index2");
     }

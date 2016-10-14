@@ -26,13 +26,8 @@ public class ShiroRealm extends AuthorizingRealm {
 
     private PasswordService passwordService = new DefaultPasswordService();
 
-    public ShiroRealm() {
-        System.out.println(getClass());
-    }
-
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        System.out.println("doGetAuthorizationInfo 111 ");
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession(false);
         SimpleAuthorizationInfo authorizationInfo = (SimpleAuthorizationInfo) session.getAttribute(Cons.AUTHORIZATION_INFO);
@@ -43,7 +38,7 @@ public class ShiroRealm extends AuthorizingRealm {
             Set<String> roles = new HashSet<String>();
 //			/* 添加多个权限名 */
             Set<String> permissions = new HashSet<String>();
-
+            permissions.add("看帖子");
 
             authorizationInfo.addRoles(roles);
             authorizationInfo.addStringPermissions(permissions); // 添加权限名
