@@ -24,7 +24,7 @@
     </listener>
     <filter>
         <filter-name>basisFilter</filter-name>
-        <filter-class>com.sgaop.basis.web.FrameWebFilter</filter-class>
+        <filter-class>com.sgaop.basis.web.BasisMvcWebFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>basisFilter</filter-name>
