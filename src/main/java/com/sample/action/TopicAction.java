@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * Created by 30695 on 2016/9/24 0024.
  */
 @IocBean
-@Control("/topic")
+@Action("/topic")
 @RequiresUser
 public class TopicAction {
 

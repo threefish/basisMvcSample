@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * To change this template use File | Settings | File Templates.
  */
 @IocBean
-@Control("/account")
+@Action("/account")
 public class AccountLoginAction {
 
     private HttpServletRequest request;

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Control 标识这是一个可访问的webAction
  */
 @IocBean("MainAction")
-@Control("/main")
+@Action("/main")
 public class MainAction {
 
     @Inject("dao")

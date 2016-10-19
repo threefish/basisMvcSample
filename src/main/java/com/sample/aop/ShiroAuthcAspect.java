@@ -2,7 +2,7 @@ package com.sample.aop;
 
 import com.sample.error.AuthzException;
 import com.sgaop.basis.annotation.Aspect;
-import com.sgaop.basis.annotation.Control;
+import com.sgaop.basis.annotation.Action;
 import com.sgaop.basis.annotation.IocBean;
 import com.sgaop.basis.aop.InterceptorProxy;
 import org.apache.log4j.Logger;
@@ -24,7 +24,7 @@ import java.util.Collection;
  * 结合shiro控制用户访问后台方法
  */
 @IocBean
-@Aspect(annotation = Control.class)
+@Aspect(annotation = Action.class, No = 1)
 public class ShiroAuthcAspect extends InterceptorProxy {
 
     private static final Logger logger = Logger.getRootLogger();
@@ -39,7 +39,7 @@ public class ShiroAuthcAspect extends InterceptorProxy {
 
     @Override
     public void before(Class<?> cls, Method method, Object[] params) throws Throwable {
-        System.out.println("xxx");
+        System.out.println("权限检查");
         Annotation clasAnn = getAnnotation(cls);
         Annotation methodAnn = getAnnotation(method);
         if (clasAnn != null) {
