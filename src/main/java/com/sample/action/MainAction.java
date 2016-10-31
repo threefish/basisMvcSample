@@ -1,12 +1,15 @@
 package com.sample.action;
 
+import com.sample.entity.Topic;
 import com.sgaop.basis.annotation.*;
 import com.sgaop.basis.dao.Dao;
+import com.sgaop.basis.dao.factory.DataSourceFactory;
 import com.sgaop.basis.mvc.Mvcs;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 /**
@@ -29,19 +32,21 @@ public class MainAction {
     @Inject("dao")
     private Dao dao;
 
+    @Inject("java:db.jdbcUrl")
+    private String jdbcUrl;
+
+    @Inject("java:db.password")
+    private int password;
+
+    @Inject("java:db.testOnBorrow")
+    private boolean testOnBorrow;
+
     @OK("beetl:index")
     @GET
     @Path("/index")
     @Aop("allAop")
     public void index(HttpServletRequest request) {
-        try {
-            request.getRequestDispatcher("/main/index2").forward(request, Mvcs.getResp());
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("index");
+        System.out.println(String.format("当前访问indx方法{dbPass:%s,password：%d}", jdbcUrl, password));
     }
 
     @OK("beetl:index2")

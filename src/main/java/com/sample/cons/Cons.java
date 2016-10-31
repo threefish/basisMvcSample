@@ -10,4 +10,5 @@ public class Cons {
     public static final String AUTHORIZATION_INFO = "AUTHORIZATION_INFO";
 
     public static final String SESSION_USER = "session_user";
+
 }
