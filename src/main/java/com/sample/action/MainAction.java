@@ -2,8 +2,11 @@ package com.sample.action;
 
 import com.sgaop.basis.annotation.*;
 import com.sgaop.basis.dao.Dao;
+import com.sgaop.basis.mvc.Mvcs;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 
 /**
@@ -31,10 +34,17 @@ public class MainAction {
     @Path("/index")
     @Aop("allAop")
     public void index(HttpServletRequest request) {
+        try {
+            request.getRequestDispatcher("/main/index2").forward(request, Mvcs.getResp());
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("index");
     }
 
-    @OK("beetl:index")
+    @OK("beetl:index2")
     @GET
     @Path("/index2")
     public void index2(HttpServletRequest request) {

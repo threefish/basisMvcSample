@@ -7,6 +7,8 @@ import com.sgaop.basis.annotation.IocBean;
 import com.sgaop.basis.aop.InterceptorProxy;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AccountException;
+import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.*;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
@@ -39,15 +41,12 @@ public class ShiroAuthcAspect extends InterceptorProxy {
 
     @Override
     public void before(Class<?> cls, Method method, Object[] params) throws Throwable {
-        System.out.println("权限检查");
         Annotation clasAnn = getAnnotation(cls);
         Annotation methodAnn = getAnnotation(method);
         if (clasAnn != null) {
             handleAuth(clasAnn);
-            System.out.println("class权限检查");
         }
         if (methodAnn != null) {
-            System.out.println("method权限检查");
             handleAuth(methodAnn);
         }
     }
@@ -94,7 +93,7 @@ public class ShiroAuthcAspect extends InterceptorProxy {
     private void handleAuthenticated() {
         Subject currentUser = SecurityUtils.getSubject();
         if (!currentUser.isAuthenticated()) {
-            throw new AuthzException("当前用户尚未认证");
+            throw new AuthorizationException("当前用户尚未认证");
         }
     }
 
@@ -102,7 +101,7 @@ public class ShiroAuthcAspect extends InterceptorProxy {
         Subject currentUser = SecurityUtils.getSubject();
         PrincipalCollection principals = currentUser.getPrincipals();
         if (principals == null || principals.isEmpty()) {
-            throw new AuthzException("当前用户尚未登录");
+            throw new AccountException("当前用户尚未登录");
         }
     }
 
@@ -123,7 +122,7 @@ public class ShiroAuthcAspect extends InterceptorProxy {
         Subject currentUser = SecurityUtils.getSubject();
         //必须匹配全部角色
         if (!currentUser.hasAllRoles(roles)) {
-            throw new AuthzException("当前用户角色不符");
+            throw new AccountException("当前用户角色不符");
         }
     }
 
@@ -132,7 +131,7 @@ public class ShiroAuthcAspect extends InterceptorProxy {
         Subject currentUser = SecurityUtils.getSubject();
         //必须匹配全部权限
         if (!currentUser.isPermittedAll(permissionName)) {
-            throw new AuthzException("当前用户权限不符");
+            throw new AuthorizationException("当前用户权限不符");
         }
     }
 
