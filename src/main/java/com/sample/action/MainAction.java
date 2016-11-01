@@ -3,9 +3,9 @@ package com.sample.action;
 import com.sample.entity.Topic;
 import com.sgaop.basis.annotation.*;
 import com.sgaop.basis.dao.Dao;
+import com.sgaop.basis.trans.TransAop;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 
@@ -44,19 +44,20 @@ public class MainAction {
     @OK("beetl:index")
     @GET
     @Path("/index")
-    @Aop("allAop")
-    public void index(HttpServletRequest request) {
+    @Aop({TransAop.READ_COMMITTED,"allAop"})
+    public void index(HttpServletRequest request) throws SQLException {
         System.out.printf("当前访问indx方法{dbPass:%s,password：%d} \r\n", jdbcUrl, password);
         try {
-            System.out.printf("当前事务隔离级别:%d\r\n",daoB.getConnection().getTransactionIsolation());
-            System.out.printf("当前事务是否打开:%s\r\n", daoB.getConnection().getAutoCommit());
-
             Topic tp = new Topic();
-            tp.setContent("我了个艹");
-            daoB.insert(Topic.class,tp);
-            System.out.printf("DAO_A：%s \r\nDAO_B：%s", daoA.getConnection().toString(), daoB.getConnection().toString());
-        } catch (SQLException e) {
-            e.printStackTrace();
+            tp.setContent("我了个艹A");
+            daoA.insert(Topic.class, tp);
+
+            Topic tp2 = new Topic();
+            tp2.setId(5);
+            tp2.setContent("我了个艹a+");
+            daoA.insert(Topic.class, tp2);
+        } catch (Exception e) {
+            throw e;
         }
     }
 

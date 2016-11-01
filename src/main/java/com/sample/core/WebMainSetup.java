@@ -1,10 +1,8 @@
 package com.sample.core;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.sgaop.basis.annotation.IocBean;
 import com.sgaop.basis.annotation.Setup;
 import com.sgaop.basis.cache.PropertiesManager;
-import com.sgaop.basis.dao.Dao;
 import com.sgaop.basis.dao.DaosRegister;
 import com.sgaop.basis.dao.impl.DaoImpl;
 import com.sgaop.basis.mvc.view.ViewsRegister;
@@ -14,7 +12,6 @@ import com.sgaop.basis.web.WebSetup;
 
 import javax.servlet.ServletContextEvent;
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,31 +23,28 @@ import java.sql.SQLException;
 public class WebMainSetup implements WebSetup {
     /**
      * 数据源1
+     *
      * @return
      */
-    private DataSource getDsA(){
-        DruidDataSource dataSource=new DruidDataSource();
-        try {
-            dataSource.setPassword(PropertiesManager.getCacheStr("db.password"));
-            dataSource.setUsername(PropertiesManager.getCacheStr("db.user"));
-            dataSource.setUrl(PropertiesManager.getCacheStr("db.jdbcUrl"));
-            dataSource.setMaxActive(PropertiesManager.getIntCache("db.maxActive"));
-            dataSource.setDriverClassName(PropertiesManager.getCacheStr("db.driverClassName"));
-            dataSource.setValidationQuery(PropertiesManager.getCacheStr("db.validationQuery"));
-            dataSource.setValidationQueryTimeout(PropertiesManager.getIntCache("db.validationQueryTimeout"));
-            dataSource.setInitialSize(PropertiesManager.getIntCache("db.initialSize"));
-            dataSource.setMinIdle(PropertiesManager.getIntCache("db.minIdle"));
-            dataSource.setMaxWait(PropertiesManager.getIntCache("db.maxWait"));
-            dataSource.setTimeBetweenEvictionRunsMillis(PropertiesManager.getIntCache("db.timeBetweenEvictionRunsMillis"));
-            dataSource.setMinEvictableIdleTimeMillis(PropertiesManager.getIntCache("db.minEvictableIdleTimeMillis"));
-            dataSource.setTestWhileIdle(PropertiesManager.getBooleanCache("db.testWhileIdle"));
-            dataSource.setTestOnBorrow(PropertiesManager.getBooleanCache("db.testOnBorrow"));
-            dataSource.setTestOnReturn(PropertiesManager.getBooleanCache("db.testOnReturn"));
-            dataSource.setPoolPreparedStatements(PropertiesManager.getBooleanCache("db.poolPreparedStatements"));
-            dataSource.init();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    private DataSource getDsA() {
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setPassword(PropertiesManager.getCacheStr("db.password"));
+        dataSource.setUsername(PropertiesManager.getCacheStr("db.user"));
+        dataSource.setUrl(PropertiesManager.getCacheStr("db.jdbcUrl"));
+        dataSource.setMaxActive(PropertiesManager.getIntCache("db.maxActive"));
+        dataSource.setDriverClassName(PropertiesManager.getCacheStr("db.driverClassName"));
+        dataSource.setValidationQuery(PropertiesManager.getCacheStr("db.validationQuery"));
+        dataSource.setValidationQueryTimeout(PropertiesManager.getIntCache("db.validationQueryTimeout"));
+        dataSource.setInitialSize(PropertiesManager.getIntCache("db.initialSize"));
+        dataSource.setMinIdle(PropertiesManager.getIntCache("db.minIdle"));
+        dataSource.setMaxWait(PropertiesManager.getIntCache("db.maxWait"));
+        dataSource.setTimeBetweenEvictionRunsMillis(PropertiesManager.getIntCache("db.timeBetweenEvictionRunsMillis"));
+        dataSource.setMinEvictableIdleTimeMillis(PropertiesManager.getIntCache("db.minEvictableIdleTimeMillis"));
+        dataSource.setTestWhileIdle(PropertiesManager.getBooleanCache("db.testWhileIdle"));
+        dataSource.setTestOnBorrow(PropertiesManager.getBooleanCache("db.testOnBorrow"));
+        dataSource.setTestOnReturn(PropertiesManager.getBooleanCache("db.testOnReturn"));
+        dataSource.setPoolPreparedStatements(PropertiesManager.getBooleanCache("db.poolPreparedStatements"));
+
         return dataSource;
     }
 
@@ -61,27 +55,22 @@ public class WebMainSetup implements WebSetup {
      */
     private DataSource getDsB() {
         DruidDataSource dataSource = new DruidDataSource();
-        try {
-            dataSource.setPassword(PropertiesManager.getCacheStr("dbB.password"));
-            dataSource.setUsername(PropertiesManager.getCacheStr("dbB.user"));
-            dataSource.setUrl(PropertiesManager.getCacheStr("dbB.jdbcUrl"));
-            dataSource.setMaxActive(PropertiesManager.getIntCache("dbB.maxActive"));
-            dataSource.setDriverClassName(PropertiesManager.getCacheStr("dbB.driverClassName"));
-            dataSource.setValidationQuery(PropertiesManager.getCacheStr("dbB.validationQuery"));
-            dataSource.setValidationQueryTimeout(PropertiesManager.getIntCache("dbB.validationQueryTimeout"));
-            dataSource.setInitialSize(PropertiesManager.getIntCache("dbB.initialSize"));
-            dataSource.setMinIdle(PropertiesManager.getIntCache("dbB.minIdle"));
-            dataSource.setMaxWait(PropertiesManager.getIntCache("dbB.maxWait"));
-            dataSource.setTimeBetweenEvictionRunsMillis(PropertiesManager.getIntCache("dbB.timeBetweenEvictionRunsMillis"));
-            dataSource.setMinEvictableIdleTimeMillis(PropertiesManager.getIntCache("dbB.minEvictableIdleTimeMillis"));
-            dataSource.setTestWhileIdle(PropertiesManager.getBooleanCache("dbB.testWhileIdle"));
-            dataSource.setTestOnBorrow(PropertiesManager.getBooleanCache("dbB.testOnBorrow"));
-            dataSource.setTestOnReturn(PropertiesManager.getBooleanCache("dbB.testOnReturn"));
-            dataSource.setPoolPreparedStatements(PropertiesManager.getBooleanCache("dbB.poolPreparedStatements"));
-            dataSource.init();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dataSource.setPassword(PropertiesManager.getCacheStr("dbB.password"));
+        dataSource.setUsername(PropertiesManager.getCacheStr("dbB.user"));
+        dataSource.setUrl(PropertiesManager.getCacheStr("dbB.jdbcUrl"));
+        dataSource.setMaxActive(PropertiesManager.getIntCache("dbB.maxActive"));
+        dataSource.setDriverClassName(PropertiesManager.getCacheStr("dbB.driverClassName"));
+        dataSource.setValidationQuery(PropertiesManager.getCacheStr("dbB.validationQuery"));
+        dataSource.setValidationQueryTimeout(PropertiesManager.getIntCache("dbB.validationQueryTimeout"));
+        dataSource.setInitialSize(PropertiesManager.getIntCache("dbB.initialSize"));
+        dataSource.setMinIdle(PropertiesManager.getIntCache("dbB.minIdle"));
+        dataSource.setMaxWait(PropertiesManager.getIntCache("dbB.maxWait"));
+        dataSource.setTimeBetweenEvictionRunsMillis(PropertiesManager.getIntCache("dbB.timeBetweenEvictionRunsMillis"));
+        dataSource.setMinEvictableIdleTimeMillis(PropertiesManager.getIntCache("dbB.minEvictableIdleTimeMillis"));
+        dataSource.setTestWhileIdle(PropertiesManager.getBooleanCache("dbB.testWhileIdle"));
+        dataSource.setTestOnBorrow(PropertiesManager.getBooleanCache("dbB.testOnBorrow"));
+        dataSource.setTestOnReturn(PropertiesManager.getBooleanCache("dbB.testOnReturn"));
+        dataSource.setPoolPreparedStatements(PropertiesManager.getBooleanCache("dbB.poolPreparedStatements"));
         return dataSource;
     }
 
