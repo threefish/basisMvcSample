@@ -3,12 +3,9 @@ package com.sample.action;
 import com.sample.entity.Topic;
 import com.sgaop.basis.annotation.*;
 import com.sgaop.basis.dao.Dao;
-import com.sgaop.basis.dao.factory.DataSourceFactory;
-import com.sgaop.basis.mvc.Mvcs;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 
@@ -29,8 +26,11 @@ import java.sql.SQLException;
 @Action("/main")
 public class MainAction {
 
-    @Inject("dao")
-    private Dao dao;
+    @Inject("daoA")
+    private Dao daoA;
+
+    @Inject("daoB")
+    private Dao daoB;
 
     @Inject("java:db.jdbcUrl")
     private String jdbcUrl;
@@ -46,7 +46,18 @@ public class MainAction {
     @Path("/index")
     @Aop("allAop")
     public void index(HttpServletRequest request) {
-        System.out.println(String.format("当前访问indx方法{dbPass:%s,password：%d}", jdbcUrl, password));
+        System.out.printf("当前访问indx方法{dbPass:%s,password：%d} \r\n", jdbcUrl, password);
+        try {
+            System.out.printf("当前事务隔离级别:%d\r\n",daoB.getConnection().getTransactionIsolation());
+            System.out.printf("当前事务是否打开:%s\r\n", daoB.getConnection().getAutoCommit());
+
+            Topic tp = new Topic();
+            tp.setContent("我了个艹");
+            daoB.insert(Topic.class,tp);
+            System.out.printf("DAO_A：%s \r\nDAO_B：%s", daoA.getConnection().toString(), daoB.getConnection().toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @OK("beetl:index2")
