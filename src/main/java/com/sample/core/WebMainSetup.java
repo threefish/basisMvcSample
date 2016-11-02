@@ -44,7 +44,8 @@ public class WebMainSetup implements WebSetup {
         dataSource.setTestOnBorrow(PropertiesManager.getBooleanCache("db.testOnBorrow"));
         dataSource.setTestOnReturn(PropertiesManager.getBooleanCache("db.testOnReturn"));
         dataSource.setPoolPreparedStatements(PropertiesManager.getBooleanCache("db.poolPreparedStatements"));
-
+        dataSource.setRemoveAbandoned(true);
+        dataSource.setRemoveAbandonedTimeout(60 * 60 * 1000);
         return dataSource;
     }
 
@@ -71,6 +72,8 @@ public class WebMainSetup implements WebSetup {
         dataSource.setTestOnBorrow(PropertiesManager.getBooleanCache("dbB.testOnBorrow"));
         dataSource.setTestOnReturn(PropertiesManager.getBooleanCache("dbB.testOnReturn"));
         dataSource.setPoolPreparedStatements(PropertiesManager.getBooleanCache("dbB.poolPreparedStatements"));
+        dataSource.setRemoveAbandoned(true);
+        dataSource.setRemoveAbandonedTimeout(60*60*1000);
         return dataSource;
     }
 

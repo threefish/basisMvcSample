@@ -46,7 +46,7 @@ public class MainAction {
     @Path("/index")
     @Aop({TransAop.READ_COMMITTED,"allAop"})
     public String index(HttpServletRequest request) throws SQLException {
-        System.out.printf("当前访问indx方法{dbPass:%s,password：%d} \r\n", jdbcUrl, password);
+        System.out.println(">>>>>:"+request.getRequestedSessionId());
         try {
             Topic tp = new Topic();
             tp.setContent("我了个艹A");
@@ -65,10 +65,18 @@ public class MainAction {
         return "beetl:index";
     }
 
-    @OK("beetl:index2")
+    @OK("beetl:index")
     @GET
     @Path("/index2")
     public void index2(HttpServletRequest request) {
+        Topic tp = new Topic();
+        tp.setContent("我了个艹A");
+        try {
+            tp.setId(daoA.insert(tp));
+            daoA.delect(tp);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         System.out.println("index2");
     }
 
