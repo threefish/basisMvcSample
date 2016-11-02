@@ -49,16 +49,13 @@ public class MainAction {
         System.out.println(">>>>>:"+request.getRequestedSessionId());
         try {
             Topic tp = new Topic();
-            tp.setContent("我了个艹A");
+            tp.setContent(Thread.currentThread().getName());
             daoA.insert(tp);
 
             Topic tp2 = new Topic();
             tp2.setId(5);
             tp2.setContent("我了个艹a+");
-
-            daoA.delect(tp2);
-
-            daoA.insert( tp2);
+            daoB.insert(tp);
         } catch (Exception e) {
             throw e;
         }
@@ -70,13 +67,21 @@ public class MainAction {
     @Path("/index2")
     public void index2(HttpServletRequest request) {
         Topic tp = new Topic();
-        tp.setContent("我了个艹A");
+        tp.setContent(Thread.currentThread().getName());
         try {
             tp.setId(daoA.insert(tp));
             daoA.delect(tp);
+
+
+
+            daoA.insert(tp);
+            daoB.insert(tp);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
         System.out.println("index2");
     }
 
