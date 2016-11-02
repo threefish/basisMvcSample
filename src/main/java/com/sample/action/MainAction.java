@@ -56,9 +56,12 @@ public class MainAction {
             tp2.setId(5);
             tp2.setContent("我了个艹a+");
             daoB.insert(tp);
+//            throw new RuntimeException("我是故意的");
+
         } catch (Exception e) {
             throw e;
         }
+
         return "beetl:index";
     }
 
@@ -69,20 +72,20 @@ public class MainAction {
         Topic tp = new Topic();
         tp.setContent(Thread.currentThread().getName());
         try {
-            tp.setId(daoA.insert(tp));
-            daoA.delect(tp);
+//            tp.setId(daoA.insert(tp));
+//            daoA.delect(tp);
 
 
-
+            daoA.getConnection();
             daoA.insert(tp);
+            daoB.getConnection();
             daoB.insert(tp);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
         System.out.println("index2");
+
     }
 
 //    @OK("jsp:testpage.jsp")
