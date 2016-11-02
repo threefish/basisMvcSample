@@ -41,13 +41,16 @@ public class MainAction {
     @Inject("java:db.testOnBorrow")
     private boolean testOnBorrow;
 
-    @OK("beetl:index")
+//    @OK("beetl:index")
     @GET
     @Path("/index")
     @Aop({TransAop.READ_COMMITTED,"allAop"})
-    public void index(HttpServletRequest request) throws SQLException {
+    public String index(HttpServletRequest request) throws SQLException {
         System.out.printf("当前访问indx方法{dbPass:%s,password：%d} \r\n", jdbcUrl, password);
         try {
+
+
+
             Topic tp = new Topic();
             tp.setContent("我了个艹A");
             daoA.insert(Topic.class, tp);
@@ -55,10 +58,14 @@ public class MainAction {
             Topic tp2 = new Topic();
             tp2.setId(5);
             tp2.setContent("我了个艹a+");
+
+            daoA.delect(Topic.class,tp2);
+
             daoA.insert(Topic.class, tp2);
         } catch (Exception e) {
             throw e;
         }
+        return "beetl:index";
     }
 
     @OK("beetl:index2")
