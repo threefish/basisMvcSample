@@ -50,15 +50,15 @@ public class MainAction {
         try {
             Topic tp = new Topic();
             tp.setContent("我了个艹A");
-            daoA.insert(Topic.class, tp);
+            daoA.insert(tp);
 
             Topic tp2 = new Topic();
             tp2.setId(5);
             tp2.setContent("我了个艹a+");
 
-            daoA.delect(Topic.class,tp2);
+            daoA.delect(tp2);
 
-            daoA.insert(Topic.class, tp2);
+            daoA.insert( tp2);
         } catch (Exception e) {
             throw e;
         }
