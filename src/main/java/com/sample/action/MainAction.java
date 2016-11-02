@@ -48,9 +48,6 @@ public class MainAction {
     public String index(HttpServletRequest request) throws SQLException {
         System.out.printf("当前访问indx方法{dbPass:%s,password：%d} \r\n", jdbcUrl, password);
         try {
-
-
-
             Topic tp = new Topic();
             tp.setContent("我了个艹A");
             daoA.insert(Topic.class, tp);
