@@ -44,18 +44,17 @@ public class MainAction {
 //    @OK("beetl:index")
     @GET
     @Path("/index")
-    @Aop({TransAop.READ_COMMITTED,"allAop"})
+    @Aop({TransAop.READ_COMMITTED})
     public String index(HttpServletRequest request) throws SQLException {
-        System.out.println(">>>>>:"+request.getRequestedSessionId());
         try {
             Topic tp = new Topic();
             tp.setContent(Thread.currentThread().getName());
-            daoA.insert(tp);
+            daoB.insert(tp);
 
             Topic tp2 = new Topic();
             tp2.setId(5);
             tp2.setContent("我了个艹a+");
-            daoB.insert(tp);
+            daoB.insert(tp2);
 //            throw new RuntimeException("我是故意的");
 
         } catch (Exception e) {
@@ -74,11 +73,7 @@ public class MainAction {
         try {
 //            tp.setId(daoA.insert(tp));
 //            daoA.delect(tp);
-
-
-            daoA.getConnection();
             daoA.insert(tp);
-            daoB.getConnection();
             daoB.insert(tp);
 
         } catch (SQLException e) {

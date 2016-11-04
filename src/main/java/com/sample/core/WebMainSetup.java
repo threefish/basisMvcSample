@@ -3,6 +3,7 @@ package com.sample.core;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.sgaop.basis.annotation.Setup;
 import com.sgaop.basis.cache.PropertiesManager;
+import com.sgaop.basis.dao.Dao;
 import com.sgaop.basis.dao.DaosRegister;
 import com.sgaop.basis.dao.impl.DaoImpl;
 import com.sgaop.basis.mvc.view.ViewsRegister;
