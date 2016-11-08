@@ -30,6 +30,7 @@
         <filter-name>basisFilter</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
+        <!--内部转发需要设置 FORWARD-->
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
     </filter-mapping>
