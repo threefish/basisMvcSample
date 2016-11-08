@@ -1,8 +1,8 @@
 package com.sample.aop;
 
 import com.sample.error.AuthzException;
-import com.sgaop.basis.annotation.Aspect;
 import com.sgaop.basis.annotation.Action;
+import com.sgaop.basis.annotation.Aspect;
 import com.sgaop.basis.annotation.IocBean;
 import com.sgaop.basis.aop.InterceptorProxy;
 import org.apache.log4j.Logger;

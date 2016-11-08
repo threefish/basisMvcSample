@@ -1,7 +1,7 @@
 package com.sample.aop;
 
-import com.sgaop.basis.annotation.Aspect;
 import com.sgaop.basis.annotation.Action;
+import com.sgaop.basis.annotation.Aspect;
 import com.sgaop.basis.annotation.Inject;
 import com.sgaop.basis.annotation.IocBean;
 import com.sgaop.basis.aop.InterceptorProxy;
@@ -25,7 +25,7 @@ public class LogsAspect extends InterceptorProxy {
 
     @Override
     protected void before(Class<?> cls, Method method, Object[] params) throws Throwable {
-        System.out.println(String.format("LogsAspect用户访问了[%s]的[%s]方法",cls.getName(),method.getName()));
+        System.out.println(String.format("LogsAspect用户访问了[%s]的[%s]方法", cls.getName(), method.getName()));
     }
 
     @Override

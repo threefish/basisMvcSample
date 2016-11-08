@@ -41,7 +41,7 @@ public class MainAction {
     @Inject("java:db.testOnBorrow")
     private boolean testOnBorrow;
 
-//    @OK("beetl:index")
+    //    @OK("beetl:index")
     @GET
     @Path("/index")
     @Aop({TransAop.READ_COMMITTED})
@@ -49,10 +49,10 @@ public class MainAction {
         try {
             Topic tp = new Topic();
             tp.setContent(Thread.currentThread().getName());
-            daoB.insert(tp);
+            daoA.insert(tp);
 
             Topic tp2 = new Topic();
-            tp2.setId(5);
+            tp2.setId(2);
             tp2.setContent("我了个艹a+");
             daoB.insert(tp2);
 //            throw new RuntimeException("我是故意的");
